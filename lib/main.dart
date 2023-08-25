@@ -1,7 +1,7 @@
 import 'package:corelab_app_challenge/theme_custom.dart';
 import 'package:flutter/material.dart';
 
-import 'application/core/core.dart';
+import 'application/pages/pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Corelab App Challenge',
       debugShowCheckedModeBanner: false,
       theme: themeCustom,
-      home: BasePage(),
+      home: HomePage(),
     );
   }
 }
