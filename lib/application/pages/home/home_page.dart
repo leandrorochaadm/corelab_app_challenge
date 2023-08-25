@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/widgets/widgets.dart';
+import 'widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   final int indexBottomNavigationBar = 0;
@@ -10,10 +11,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // backgroundColor: Colors.blue,
         body: Column(
           children: [
             SearchBarWidget(),
-            const Placeholder(),
+            ProductsWidget(),
           ],
         ),
         bottomNavigationBar:

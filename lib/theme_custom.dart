@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 const _primaryColor = Color(0xFF00b4cc);
-const _grey06 = Color(0xFF7C9094);
+const grey06 = Color(0xFF7C9094);
+const greyBlack = Color(0xFF002429);
+const background = Colors.white;
 
 final themeCustom = ThemeData(
   useMaterial3: true,
@@ -9,5 +11,5 @@ final themeCustom = ThemeData(
     seedColor: _primaryColor,
     primary: _primaryColor,
   ),
-  unselectedWidgetColor: _grey06,
+  unselectedWidgetColor: grey06,
 );
