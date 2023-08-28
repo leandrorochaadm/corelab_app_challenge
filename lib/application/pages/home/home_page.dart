@@ -17,13 +17,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SearchBarWidget(),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 24, bottom: 10),
-              child: Text(
-                'Últimos anúncios',
-                style: textStyleTitle,
-              ),
-            ),
+            TitleWidget(),
             Expanded(
               child: ListView.builder(
                   itemCount: 5,
