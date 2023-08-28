@@ -21,11 +21,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20, top: 24, bottom: 10),
               child: Text(
                 'Últimos anúncios',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: greyBlack,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: textStyleTitle,
               ),
             ),
             Expanded(
@@ -41,11 +37,7 @@ class HomePage extends StatelessWidget {
                               left: 20, top: 10, bottom: 10),
                           child: Text(
                             'Hoje ${index}',
-                            style: TextStyle(
-                              color: grey06,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: textStyleSubTitle,
                           ),
                         ),
                         ProductsWidget(),

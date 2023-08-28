@@ -8,6 +8,7 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
     return Container(
       color: background,
       child: Row(
@@ -28,12 +29,7 @@ class ProductWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4)),
                 child: Text(
                   '10% off'.toUpperCase(),
-                  style: TextStyle(
-                    color: background,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 0.5,
-                  ),
+                  style: textStyleLabelDiscount,
                 ),
               ),
               SizedBox(
@@ -42,30 +38,20 @@ class ProductWidget extends StatelessWidget {
                   'Dipirona D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D ',
                   overflow: TextOverflow.clip,
                   maxLines: 2,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: greyBlack,
-                  ),
+                  style: textStyleGreyBlack16,
                 ),
               ),
               Text(
                 r'R$5000,00',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: greyBlack,
-                ),
+                style: textStyleGreyBlack20,
               ),
               Text(
                 r'Em até 12x de R$ 249,00',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: theme.primaryColor,
-                ),
+                style: textStylePrimaryColor14,
               ),
               Text(
                 'Novo'.toUpperCase(),
-                style: TextStyle(fontSize: 14, color: grey06),
+                style: textStyleLabelSituation,
               ),
             ],
           )
