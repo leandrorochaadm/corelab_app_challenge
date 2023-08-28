@@ -1,6 +1,6 @@
-import 'package:corelab_app_challenge/theme_custom.dart';
 import 'package:flutter/material.dart';
 
+import '../../../theme_custom.dart';
 import '../../core/widgets/widgets.dart';
 import 'widgets/widgets.dart';
 
@@ -18,27 +18,7 @@ class HomePage extends StatelessWidget {
           children: [
             SearchBarWidget(),
             TitleWidget(),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 20, top: 10, bottom: 10),
-                          child: Text(
-                            'Hoje ${index}',
-                            style: textStyleSubTitle,
-                          ),
-                        ),
-                        ProductsWidget(),
-                      ],
-                    );
-                  }),
-            ),
+            LastAdsWidget(),
           ],
         ),
         bottomNavigationBar:
