@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
             SearchBarWidget(),
             TitleWidget(),
             // LastAdsWidget(),
-            HistorySearchBarWidget()
+            // HistorySearchBarWidget()
           ],
         ),
         bottomNavigationBar:

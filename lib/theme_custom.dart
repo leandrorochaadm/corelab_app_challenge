@@ -4,6 +4,7 @@ const _primaryColor = Color(0xFF00b4cc);
 const grey00 = Color(0xFFf7f9fa);
 const grey01 = Color(0xFFEBF1F4);
 const grey06 = Color(0xFF7C9094);
+const grey08 = Color(0xFF4A6569);
 const greyBlack = Color(0xFF002429);
 const background = Colors.white;
 
@@ -11,6 +12,11 @@ const textStyleTitle = TextStyle(
   fontSize: 20,
   color: greyBlack,
   fontWeight: FontWeight.w500,
+);
+const textStyleMessageNotResult = TextStyle(
+  fontSize: 16,
+  color: grey08,
+  fontWeight: FontWeight.w400,
 );
 
 const textStyleLabelItemList = TextStyle(
