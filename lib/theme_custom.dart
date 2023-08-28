@@ -13,6 +13,12 @@ const textStyleTitle = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+const textStyleLabelItemList = TextStyle(
+  color: grey06,
+  fontSize: 18,
+  fontWeight: FontWeight.w400,
+);
+
 const textStyleSubTitle = TextStyle(
   color: grey06,
   fontSize: 14,
