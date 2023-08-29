@@ -30,7 +30,7 @@ class HomeCubit extends Cubit<HomeState> {
   void searching() {
     emit(state.copyWith(
       status: HomeStateStatus.searching,
-      title: 'Pesquisa recentes',
+      title: 'Pesquisas recentes',
     ));
   }
 
