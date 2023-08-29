@@ -12,7 +12,7 @@ class TextStyles {
     return _instance!;
   }
 
-  String get font => 'mplus1';
+  String get font => 'DMSans';
 
   TextStyle get textStyleTitle => TextStyle(
         fontSize: 20,

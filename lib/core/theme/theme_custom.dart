@@ -8,5 +8,6 @@ final themeCustom = ThemeData(
     seedColor: ColorsApp.i.primary,
     primary: ColorsApp.i.primary,
   ),
+  fontFamily: TextStyles.i.font,
   unselectedWidgetColor: ColorsApp.i.grey06,
 );
