@@ -9,28 +9,28 @@ class ErrorCustomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: 250,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.dangerous_outlined,
             size: 96,
             color: Colors.red,
           ),
-          SizedBox(height: 20),
-          Text('Ops!', style: textStyleTitle),
-          Text('Aconteceu algo inesperado', style: textStyleTitle),
-          SizedBox(height: 10),
+          const SizedBox(height: 20),
+          Text('Ops!', style: TextStyles.i.textStyleTitle),
+          Text('Aconteceu algo inesperado', style: TextStyles.i.textStyleTitle),
+          const SizedBox(height: 10),
           Text(
             'Estamos revolvendo isso agora.',
-            style: textStyleMessageNotResult,
+            style: TextStyles.i.textStyleMessageNotResult,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             'Tente novamente mais tarde.',
-            style: textStyleMessageNotResult,
+            style: TextStyles.i.textStyleMessageNotResult,
           ),
         ],
       ),

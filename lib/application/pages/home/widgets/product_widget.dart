@@ -13,7 +13,7 @@ class ProductWidget extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      color: background,
+      color: ColorsApp.i.background,
       child: Row(
         children: [
           Image.network(
@@ -30,11 +30,11 @@ class ProductWidget extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
                   decoration: BoxDecoration(
-                      color: theme.primaryColor,
+                      color: ColorsApp.i.primary,
                       borderRadius: BorderRadius.circular(4)),
                   child: Text(
                     product.discount.toUpperCase(),
-                    style: textStyleLabelDiscount,
+                    style: TextStyles.i.textStyleLabelDiscount,
                   ),
                 ),
               ),
@@ -44,20 +44,20 @@ class ProductWidget extends StatelessWidget {
                   product.name,
                   overflow: TextOverflow.clip,
                   maxLines: 2,
-                  style: textStyleGreyBlack16,
+                  style: TextStyles.i.textStyleGreyBlack16,
                 ),
               ),
               Text(
                 product.price.currencyPTBR,
-                style: textStyleGreyBlack20,
+                style: TextStyles.i.textStyleGreyBlack20,
               ),
               Text(
                 product.conditions,
-                style: textStylePrimaryColor14,
+                style: TextStyles.i.textStylePrimaryColor14,
               ),
               Text(
                 product.status.toUpperCase(),
-                style: textStyleLabelSituation,
+                style: TextStyles.i.textStyleLabelSituation,
               ),
             ],
           )

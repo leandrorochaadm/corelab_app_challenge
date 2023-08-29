@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/theme_custom.dart';
+import '../../../../core/core.dart';
 import '../cubit/cubit.dart';
 import 'products_widget.dart';
 
@@ -27,7 +27,7 @@ class LastAdsWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
                   child: Text(
                     ads.day,
-                    style: textStyleSubTitle,
+                    style: TextStyles.i.textStyleSubTitle,
                   ),
                 ),
                 ProductsWidget(products: ads.products),

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/core.dart';
 import '../../core/core.dart';
-import '../home/widgets/widgets.dart';
 import 'cubit/cubit.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -14,12 +13,12 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: grey00,
+        backgroundColor: ColorsApp.i.grey00,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const TitleWidget(title: 'Categorias'),
-            const Divider(color: grey01),
+            Divider(color: ColorsApp.i.grey01),
             BlocConsumer<CategoriesCubit, CategoriesState>(
               listener: (context, state) => state.status.matchAny(
                 any: () {},
@@ -68,7 +67,7 @@ class CategoriesPage extends StatelessWidget {
           return InkWell(
             onTap: () {},
             child: Container(
-              color: background,
+              color: ColorsApp.i.background,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
               child: Text(
                 category.description,
@@ -80,8 +79,8 @@ class CategoriesPage extends StatelessWidget {
             ),
           );
         },
-        separatorBuilder: (context, index) => const Divider(
-          color: grey01,
+        separatorBuilder: (context, index) => Divider(
+          color: ColorsApp.i.grey01,
           height: 1,
         ),
       ),

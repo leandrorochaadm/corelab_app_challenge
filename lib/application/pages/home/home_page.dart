@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/theme/theme_custom.dart';
+import '../../../core/core.dart';
 import '../../core/widgets/widgets.dart';
 import 'cubit/cubit.dart';
 import 'widgets/widgets.dart';
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: grey00,
+        backgroundColor: ColorsApp.i.grey00,
         body: BlocConsumer<HomeCubit, HomeState>(
           listener: (context, state) => state.status.matchAny(
             any: () {},

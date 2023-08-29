@@ -1,7 +1,8 @@
 import 'package:corelab_app_challenge/application/pages/home/cubit/cubit.dart';
-import 'package:corelab_app_challenge/core/theme/theme_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../core/core.dart';
 
 class SearchBarWidget extends StatelessWidget {
   final TextEditingController _searchController = TextEditingController();
@@ -17,7 +18,7 @@ class SearchBarWidget extends StatelessWidget {
     final cubit = context.read<HomeCubit>();
     _searchController.text = state.nameProductSearching ?? '';
     return Container(
-      color: theme.primaryColor,
+      color: ColorsApp.i.primary,
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
@@ -57,7 +58,7 @@ class SearchBarWidget extends StatelessWidget {
                               nameProduct: _searchController.text),
                           icon: Icon(
                             Icons.search,
-                            color: theme.primaryColor,
+                            color: ColorsApp.i.primary,
                             size: 30,
                           ),
                         ),
@@ -66,9 +67,9 @@ class SearchBarWidget extends StatelessWidget {
                         visible: state.status == HomeStateStatus.loaded,
                         child: IconButton(
                           onPressed: () => cubit.clearSearch(),
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.clear,
-                            color: grey06,
+                            color: ColorsApp.i.grey06,
                             size: 30,
                           ),
                         ),
@@ -82,10 +83,10 @@ class SearchBarWidget extends StatelessWidget {
                 visible: state.status == HomeStateStatus.loaded,
                 child: TextButton(
                     onPressed: () {},
-                    child: const Text(
+                    child: Text(
                       'Filtros',
                       style: TextStyle(
-                        color: background,
+                        color: ColorsApp.i.background,
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
                       ),

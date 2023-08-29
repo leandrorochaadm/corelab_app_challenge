@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/theme_custom.dart';
+import '../../../core/core.dart';
 
 class TitleWidget extends StatelessWidget {
   final String title;
@@ -15,7 +15,7 @@ class TitleWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, top: 24, bottom: 10),
       child: Text(
         title,
-        style: textStyleTitle,
+        style: TextStyles.i.textStyleTitle,
       ),
     );
   }

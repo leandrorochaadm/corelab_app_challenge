@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/theme_custom.dart';
+import '../../../core/core.dart';
 import '../../pages/home/cubit/cubit.dart';
 
 class NotFoundSearchWidget extends StatelessWidget {
@@ -19,11 +19,11 @@ class NotFoundSearchWidget extends StatelessWidget {
         children: [
           Image.asset('assets/rafiki.png'),
           const SizedBox(height: 20),
-          const Text('Resultado não encontrado', style: textStyleTitle),
+          Text('Resultado não encontrado', style: TextStyles.i.textStyleTitle),
           const SizedBox(height: 10),
           Text(
             'Não encontramos nenhum resultado parecido com ${state.nameProductSearching ?? ''}.',
-            style: textStyleMessageNotResult,
+            style: TextStyles.i.textStyleMessageNotResult,
           ),
         ],
       ),
