@@ -27,13 +27,13 @@ class BottomNavigationBarCustom extends StatelessWidget {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Image.asset('assets/categories.png'),
-          activeIcon: Image.asset('assets/categories_active.png'),
+          icon: Image.asset('assets/images/categories.png'),
+          activeIcon: Image.asset('assets/images/categories_active.png'),
           label: 'Categorias',
         ),
         BottomNavigationBarItem(
-          icon: Image.asset('assets/new.png'),
-          activeIcon: Image.asset('assets/new.png'),
+          icon: Image.asset('assets/images/new.png'),
+          activeIcon: Image.asset('assets/images/new.png'),
           label: 'Anunciar',
         ),
         const BottomNavigationBarItem(
