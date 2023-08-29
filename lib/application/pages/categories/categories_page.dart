@@ -15,45 +15,53 @@ class CategoriesPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: grey00,
-        body: BlocConsumer<CategoriesCubit, CategoriesState>(
-          listener: (context, state) => state.status.matchAny(
-            any: () {},
-          ),
-          buildWhen: (previous, current) => current.status.matchAny(
-            any: () => false,
-            initial: () => true,
-            loaded: () => true,
-            error: () => true,
-          ),
-          builder: (context, state) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TitleWidget(title: 'Categorias'),
-                Expanded(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const TitleWidget(title: 'Categorias'),
+            const Divider(color: grey01),
+            BlocConsumer<CategoriesCubit, CategoriesState>(
+              listener: (context, state) => state.status.matchAny(
+                any: () {},
+              ),
+              buildWhen: (previous, current) => current.status.matchAny(
+                any: () => false,
+                initial: () => true,
+                loaded: () => true,
+                error: () => true,
+              ),
+              builder: (context, state) {
+                return Expanded(
                   child: ListView.separated(
-                    itemCount: 60,
+                    itemCount: state.categories.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 7),
-                        child: Text(
-                          'aaaaaaaaaaaaaaa',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Theme.of(context).primaryColor,
+                      final category = state.categories[index];
+                      return InkWell(
+                        onTap: () {},
+                        child: Container(
+                          color: background,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 14),
+                          child: Text(
+                            category.description,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
                         ),
                       );
                     },
-                    separatorBuilder: (context, index) =>
-                        const Divider(color: grey01),
+                    separatorBuilder: (context, index) => const Divider(
+                      color: grey01,
+                      height: 1,
+                    ),
                   ),
-                ),
-              ],
-            );
-            // return _error(state: state);
-          },
+                );
+                // return _error(state: state);
+              },
+            ),
+          ],
         ),
         bottomNavigationBar:
             BottomNavigationBarCustom(index: indexBottomNavigationBar),

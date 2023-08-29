@@ -28,4 +28,14 @@ class CategoriesState extends Equatable {
 
   @override
   List<Object?> get props => [categories, status];
+
+  CategoriesState copyWith({
+    CategoriesStateStatus? status,
+    List<CategoryEntity>? categories,
+  }) {
+    return CategoriesState(
+      status: status ?? this.status,
+      categories: categories ?? this.categories,
+    );
+  }
 }
