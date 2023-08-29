@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:match/match.dart';
 
+import '../../../../domain/entities/entities.dart';
+
 part 'home_state.g.dart';
 
 @match
@@ -20,6 +22,7 @@ class HomeState extends Equatable {
   final String title;
   final String nameProductSearching;
   final List<String> historySearch;
+  final List<ProductEntity> products;
 
   const HomeState({
     required this.status,
@@ -27,6 +30,7 @@ class HomeState extends Equatable {
     required this.title,
     required this.nameProductSearching,
     required this.historySearch,
+    required this.products,
   });
 
   const HomeState.initial()
@@ -34,7 +38,8 @@ class HomeState extends Equatable {
         errorMessage = '',
         title = '',
         nameProductSearching = '',
-        historySearch = const [];
+        historySearch = const [],
+        products = const [];
 
   @override
   List<Object> get props => [
@@ -43,6 +48,7 @@ class HomeState extends Equatable {
         errorMessage,
         title,
         nameProductSearching,
+        products,
       ];
 
   HomeState copyWith({
@@ -51,6 +57,7 @@ class HomeState extends Equatable {
     String? title,
     String? nameProductSearching,
     List<String>? historySearch,
+    List<ProductEntity>? products,
   }) {
     return HomeState(
       status: status ?? this.status,
@@ -58,6 +65,7 @@ class HomeState extends Equatable {
       title: title ?? this.title,
       nameProductSearching: nameProductSearching ?? this.nameProductSearching,
       historySearch: historySearch ?? this.historySearch,
+      products: products ?? this.products,
     );
   }
 }

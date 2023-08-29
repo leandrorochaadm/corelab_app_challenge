@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
               return _lastAds(state);
             }
             if (state.status == HomeStateStatus.loaded) {
-              return _lastAds(state);
+              return _productsSearch(state);
             }
             return const SizedBox.shrink();
           },
@@ -57,6 +57,17 @@ class HomePage extends StatelessWidget {
         SearchBarWidget(state: state),
         TitleWidget(title: state.title ?? ''),
         LastAdsWidget(),
+      ],
+    );
+  }
+
+  Column _productsSearch(HomeState state) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SearchBarWidget(state: state),
+        TitleWidget(title: state.title ?? ''),
+        Expanded(child: ProductsWidget(isScroll: true)),
       ],
     );
   }

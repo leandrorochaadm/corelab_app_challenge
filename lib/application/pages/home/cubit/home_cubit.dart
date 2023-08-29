@@ -1,14 +1,27 @@
+import 'package:corelab_app_challenge/domain/entities/entities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../domain/usecases/usecases.dart';
 import 'cubit.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(const HomeState.initial());
+  final GetProducts getProducts;
+  HomeCubit({required this.getProducts}) : super(const HomeState.initial());
 
-  void searchProducts({required String nameProduct}) {
-    final List products = ["a"];
-    List<String> historicOld = state.historySearch;
-    List<String> historicNew = [...historicOld, nameProduct];
+  Future<void> searchProducts({required String nameProduct}) async {
+    emit(state.copyWith(status: HomeStateStatus.loading));
+    List<ProductEntity> products = [];
+
+    try {
+      products = await getProducts();
+    } catch (_) {
+      emit(state.copyWith(
+          status: HomeStateStatus.error,
+          errorMessage: "Erro ao buscar productos"));
+    }
+
+    final List<String> historicOld = state.historySearch;
+    final List<String> historicNew = [...historicOld, nameProduct];
 
     if (products.isEmpty) {
       emit(
@@ -18,13 +31,15 @@ class HomeCubit extends Cubit<HomeState> {
           historySearch: historicNew,
         ),
       );
+    } else {
+      emit(state.copyWith(
+        status: HomeStateStatus.loaded,
+        title: "${products.length} resultados encontrados",
+        nameProductSearching: nameProduct,
+        historySearch: historicNew,
+        products: products,
+      ));
     }
-    emit(state.copyWith(
-      status: HomeStateStatus.loaded,
-      title: "${products.length} resultados encontrados",
-      nameProductSearching: nameProduct,
-      historySearch: historicNew,
-    ));
   }
 
   void searching() {

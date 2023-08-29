@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'product_widget.dart';
 
 class ProductsWidget extends StatelessWidget {
+  final bool isScroll;
   const ProductsWidget({
     super.key,
+    this.isScroll = false,
   });
 
   @override
@@ -17,7 +19,9 @@ class ProductsWidget extends StatelessWidget {
       ),
       itemCount: 5,
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: isScroll
+          ? const AlwaysScrollableScrollPhysics()
+          : const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),

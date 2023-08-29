@@ -13,11 +13,11 @@ class ProductModel extends ProductEntity with EquatableMixin {
   });
 
   factory ProductModel.fromJson(dynamic json) => ProductModel(
-        name: json['name'],
-        price: json['price'],
-        conditions: json['conditions'],
-        status: json['status'],
-        discount: json['discount'],
-        imageUrl: json['imageUrl'],
+        name: json['name'] ?? '',
+        price: json['price'] ?? 0,
+        conditions: json['conditions'] ?? '',
+        status: json['status'] ?? '',
+        discount: json['discount'] ?? '',
+        imageUrl: json['imageUrl'] ?? '',
       );
 }
