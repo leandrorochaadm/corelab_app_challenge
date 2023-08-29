@@ -25,10 +25,15 @@ class HomeCubit extends Cubit<HomeState> {
           errorMessage: "Erro ao buscar productos"));
     }
 
+    final productsSearching = products
+        .where((product) =>
+            product.name.toLowerCase().contains(nameProduct.toLowerCase()))
+        .toList();
+
     final List<String> historicOld = state.historySearch;
     final List<String> historicNew = [...historicOld, nameProduct];
 
-    if (products.isEmpty) {
+    if (productsSearching.isEmpty) {
       emit(
         state.copyWith(
           status: HomeStateStatus.notFound,
@@ -37,11 +42,6 @@ class HomeCubit extends Cubit<HomeState> {
         ),
       );
     } else {
-      final productsSearching = products
-          .where((product) =>
-              product.name.toLowerCase().contains(nameProduct.toLowerCase()))
-          .toList();
-
       emit(state.copyWith(
         status: HomeStateStatus.loaded,
         title:
