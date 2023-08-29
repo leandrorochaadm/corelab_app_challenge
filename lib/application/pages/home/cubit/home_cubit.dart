@@ -32,12 +32,18 @@ class HomeCubit extends Cubit<HomeState> {
         ),
       );
     } else {
+      final productsSearching = products
+          .where((product) =>
+              product.name.toLowerCase().contains(nameProduct.toLowerCase()))
+          .toList();
+
       emit(state.copyWith(
         status: HomeStateStatus.loaded,
-        title: "${products.length} resultados encontrados",
+        title:
+            "${productsSearching.length} ${productsSearching.length > 1 ? 'resultados encontrados' : 'resultado encontrado'}",
         nameProductSearching: nameProduct,
         historySearch: historicNew,
-        products: products,
+        products: productsSearching,
       ));
     }
   }
