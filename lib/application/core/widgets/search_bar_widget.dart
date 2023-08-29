@@ -21,7 +21,6 @@ class SearchBarWidget extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
-          const SizedBox(height: 12),
           Row(
             children: [
               Expanded(
