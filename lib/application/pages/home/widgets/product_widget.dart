@@ -1,6 +1,6 @@
+import 'package:corelab_app_challenge/core/core.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/theme_custom.dart';
 import '../../../../domain/entities/entities.dart';
 
 class ProductWidget extends StatelessWidget {
@@ -48,7 +48,7 @@ class ProductWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                product.price.toString(),
+                product.price.currencyPTBR,
                 style: textStyleGreyBlack20,
               ),
               Text(
