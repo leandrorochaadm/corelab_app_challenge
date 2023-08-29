@@ -34,16 +34,12 @@ class CategoriesPage extends StatelessWidget {
     );
   }
 
-  Column _error({required CategoriesState state}) {
+  Widget _error({required CategoriesState state}) {
     return const Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [ErrorCustomWidget()],
-          ),
-        ),
+        Center(child: ErrorCustomWidget()),
       ],
     );
   }
