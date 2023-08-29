@@ -1,4 +1,4 @@
-import 'package:corelab_app_challenge/theme_custom.dart';
+import 'package:corelab_app_challenge/core/theme/theme_custom.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/entities.dart';

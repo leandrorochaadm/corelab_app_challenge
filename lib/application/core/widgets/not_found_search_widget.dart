@@ -1,7 +1,7 @@
 import 'package:corelab_app_challenge/application/pages/home/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 
-import '../../../theme_custom.dart';
+import '../../../core/theme/theme_custom.dart';
 
 class NotFoundSearchWidget extends StatelessWidget {
   final HomeState state;

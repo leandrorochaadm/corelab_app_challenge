@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
+import '../../core/core.dart';
 import '../../domain/entities/entities.dart';
 import '../../domain/usecases/usecases.dart';
-import '../../infra/rest_client/custom_dio.dart';
 import '../models/product_model.dart';
 
 class RemoteGetProduct implements GetProducts {

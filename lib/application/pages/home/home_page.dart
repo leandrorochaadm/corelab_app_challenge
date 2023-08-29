@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../theme_custom.dart';
+import '../../../core/theme/theme_custom.dart';
 import '../../core/widgets/widgets.dart';
 import 'cubit/cubit.dart';
 import 'widgets/widgets.dart';

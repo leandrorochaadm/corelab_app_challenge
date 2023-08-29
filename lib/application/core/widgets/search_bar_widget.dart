@@ -1,5 +1,5 @@
 import 'package:corelab_app_challenge/application/pages/home/cubit/cubit.dart';
-import 'package:corelab_app_challenge/theme_custom.dart';
+import 'package:corelab_app_challenge/core/theme/theme_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
