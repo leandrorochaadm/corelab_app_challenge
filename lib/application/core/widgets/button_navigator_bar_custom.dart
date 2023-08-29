@@ -19,23 +19,25 @@ class BottomNavigationBarCustom extends StatelessWidget {
         // });
       },
       items: [
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.category),
+          icon: Image.asset('assets/categories.png'),
+          activeIcon: Image.asset('assets/categories_active.png'),
           label: 'Categorias',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.category),
+          icon: Image.asset('assets/new.png'),
+          activeIcon: Image.asset('assets/new.png'),
           label: 'Anunciar',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.category),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.favorite_outline),
           label: 'Favoritos',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.category),
           label: 'Conta',
         ),
