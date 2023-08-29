@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
           ),
           buildWhen: (previous, current) => current.status.matchAny(
             any: () => false,
+            loading: () => true,
             initial: () => true,
             loaded: () => true,
             notFound: () => true,
@@ -30,9 +31,6 @@ class HomePage extends StatelessWidget {
             error: () => true,
           ),
           builder: (context, state) {
-            if (state.status == HomeStateStatus.loading) {
-              return _loading();
-            }
             if (state.status == HomeStateStatus.notFound) {
               return _notFoundSearch(state: state);
             }
@@ -45,7 +43,10 @@ class HomePage extends StatelessWidget {
             if (state.status == HomeStateStatus.loaded) {
               return _productsSearch(state);
             }
-            return _error(state: state);
+            if (state.status == HomeStateStatus.error) {
+              return _error(state: state);
+            }
+            return _loading(state);
           },
         ),
         bottomNavigationBar:
@@ -123,14 +124,18 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Expanded _loading() {
-    return const Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(child: CircularProgressIndicator()),
-        ],
-      ),
+  Widget _loading(HomeState state) {
+    return Column(
+      children: [
+        SearchBarWidget(state: state),
+        const Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [CircularProgressIndicator()],
+          ),
+        ),
+      ],
     );
   }
 }

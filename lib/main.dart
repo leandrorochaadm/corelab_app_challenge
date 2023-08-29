@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         title: 'Corelab App Challenge',
         debugShowCheckedModeBanner: false,
         theme: themeCustom,
-        initialRoute: '/categories',
+        initialRoute: '/home',
         routes: {
           '/home': (context) => HomeRouter.page,
           '/categories': (context) => CategoriesRouter.page,

@@ -61,7 +61,17 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> lastAds() async {
-    final lastAds = await getLastAds();
+    emit(state.copyWith(status: HomeStateStatus.loading));
+
+    List<LastAdsEntity> lastAds = [];
+
+    try {
+      lastAds = await getLastAds();
+    } catch (_) {
+      emit(state.copyWith(
+          status: HomeStateStatus.error,
+          errorMessage: "Erro ao buscar productos"));
+    }
 
     emit(state.copyWith(
       title: 'Últimos anúncios',
