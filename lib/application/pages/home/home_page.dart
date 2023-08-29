@@ -25,10 +25,14 @@ class HomePage extends StatelessWidget {
             initial: () => true,
             loaded: () => true,
             notFound: () => true,
+            searching: () => true,
           ),
           builder: (context, state) {
             if (state.status == HomeStateStatus.notFound) {
               return _notFoundSearch();
+            }
+            if (state.status == HomeStateStatus.searching) {
+              return _searching();
             }
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,6 +48,15 @@ class HomePage extends StatelessWidget {
         bottomNavigationBar:
             BottomNavigationBarCustom(index: indexBottomNavigationBar),
       ),
+    );
+  }
+
+  Column _searching() {
+    return Column(
+      children: [
+        SearchBarWidget(),
+        Expanded(child: HistorySearchBarWidget()),
+      ],
     );
   }
 

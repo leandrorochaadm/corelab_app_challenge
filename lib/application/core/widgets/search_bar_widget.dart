@@ -1,4 +1,6 @@
+import 'package:corelab_app_challenge/application/pages/home/cubit/cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({
@@ -8,6 +10,7 @@ class SearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final cubit = context.read<HomeCubit>();
     return Container(
       color: theme.primaryColor,
       padding: const EdgeInsets.all(10),
@@ -23,6 +26,7 @@ class SearchBarWidget extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     // controller: _searchController,
+                    onTap: () => cubit.searching(),
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,

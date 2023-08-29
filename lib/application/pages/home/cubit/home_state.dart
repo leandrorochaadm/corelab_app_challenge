@@ -16,12 +16,12 @@ enum HomeStateStatus {
 class HomeState extends Equatable {
   final HomeStateStatus status;
   final String? errorMessage;
-  final String title;
+  final String? title;
 
   const HomeState({
     required this.status,
     this.errorMessage,
-    required this.title,
+    this.title,
   });
 
   const HomeState.initial()
@@ -32,7 +32,6 @@ class HomeState extends Equatable {
   @override
   List<Object> get props => [
         status,
-        title,
       ];
 
   HomeState copyWith({

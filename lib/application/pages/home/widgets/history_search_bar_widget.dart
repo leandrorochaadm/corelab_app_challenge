@@ -9,15 +9,13 @@ class HistorySearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: 13,
-        itemBuilder: (context, index) => ListTile(
-          onTap: () {},
-          title: Text('Historico $index', style: textStyleLabelItemList),
-          leading: const Icon(Icons.history, color: grey06),
-          dense: true,
-        ),
+    return ListView.builder(
+      itemCount: 13,
+      itemBuilder: (context, index) => ListTile(
+        onTap: () {},
+        title: Text('Historico $index', style: textStyleLabelItemList),
+        leading: const Icon(Icons.history, color: grey06),
+        dense: true,
       ),
     );
   }
