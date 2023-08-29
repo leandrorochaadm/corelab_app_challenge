@@ -30,6 +30,9 @@ class HomePage extends StatelessWidget {
             error: () => true,
           ),
           builder: (context, state) {
+            if (state.status == HomeStateStatus.loading) {
+              return _loading();
+            }
             if (state.status == HomeStateStatus.notFound) {
               return _notFoundSearch(state: state);
             }
@@ -117,6 +120,17 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Expanded _loading() {
+    return const Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(child: CircularProgressIndicator()),
+        ],
+      ),
     );
   }
 }
