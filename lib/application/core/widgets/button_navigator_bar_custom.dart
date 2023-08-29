@@ -14,9 +14,12 @@ class BottomNavigationBarCustom extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       onTap: (value) {
         print(value);
-        // setState(() {
-        // widget._index = value.toInt();
-        // });
+        if (value == 0) {
+          Navigator.pushNamed(context, '/home');
+        }
+        if (value == 1) {
+          Navigator.pushNamed(context, '/categories');
+        }
       },
       items: [
         const BottomNavigationBarItem(
