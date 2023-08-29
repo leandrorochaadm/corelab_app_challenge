@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
             notFound: () => true,
             searching: () => true,
             lastAds: () => true,
+            error: () => true,
           ),
           builder: (context, state) {
             if (state.status == HomeStateStatus.notFound) {
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
             if (state.status == HomeStateStatus.loaded) {
               return _productsSearch(state);
             }
-            return const SizedBox.shrink();
+            return _error(state: state);
           },
         ),
         bottomNavigationBar:
@@ -98,6 +99,21 @@ class HomePage extends StatelessWidget {
             children: [
               NotFoundSearchWidget(state: state),
             ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Column _error({required HomeState state}) {
+    return Column(
+      children: [
+        SearchBarWidget(state: state),
+        const Expanded(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [ErrorCustomWidget()],
           ),
         ),
       ],
