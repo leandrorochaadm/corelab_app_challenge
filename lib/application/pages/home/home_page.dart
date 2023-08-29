@@ -38,6 +38,9 @@ class HomePage extends StatelessWidget {
             if (state.status == HomeStateStatus.lastAds) {
               return _lastAds(state);
             }
+            if (state.status == HomeStateStatus.loaded) {
+              return _lastAds(state);
+            }
             return const SizedBox.shrink();
           },
         ),

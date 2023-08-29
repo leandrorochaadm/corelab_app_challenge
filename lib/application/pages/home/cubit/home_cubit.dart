@@ -6,20 +6,25 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(const HomeState.initial());
 
   void searchProducts({required String nameProduct}) {
-    final List products = [];
+    final List products = ["a"];
+    List<String> historicOld = state.historySearch;
+    List<String> historicNew = [...historicOld, nameProduct];
 
     if (products.isEmpty) {
-      List<String> historicOld = state.historySearch;
-      List<String> historicNew = [...historicOld, nameProduct];
       emit(
         state.copyWith(
           status: HomeStateStatus.notFound,
-          title: "${products.length} resultados encontrados",
           nameProductSearching: nameProduct,
           historySearch: historicNew,
         ),
       );
     }
+    emit(state.copyWith(
+      status: HomeStateStatus.loaded,
+      title: "${products.length} resultados encontrados",
+      nameProductSearching: nameProduct,
+      historySearch: historicNew,
+    ));
   }
 
   void searching() {
@@ -33,6 +38,13 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(
       title: 'Últimos anúncios',
       status: HomeStateStatus.lastAds,
+    ));
+  }
+
+  void clearSearch() {
+    lastAds();
+    emit(state.copyWith(
+      nameProductSearching: '',
     ));
   }
 }
