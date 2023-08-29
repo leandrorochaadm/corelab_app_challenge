@@ -9,6 +9,7 @@ class ProductModel extends ProductEntity with EquatableMixin {
     required super.conditions,
     required super.status,
     required super.discount,
+    required super.imageUrl,
   });
 
   factory ProductModel.fromJson(dynamic json) => ProductModel(
@@ -17,5 +18,6 @@ class ProductModel extends ProductEntity with EquatableMixin {
         conditions: json['conditions'],
         status: json['status'],
         discount: json['discount'],
+        imageUrl: json['imageUrl'],
       );
 }

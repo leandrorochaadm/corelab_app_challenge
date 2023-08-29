@@ -6,6 +6,7 @@ class ProductEntity extends Equatable {
   final String conditions;
   final String status;
   final String discount;
+  final String imageUrl;
 
   const ProductEntity({
     required this.name,
@@ -13,8 +14,16 @@ class ProductEntity extends Equatable {
     required this.conditions,
     required this.status,
     required this.discount,
+    required this.imageUrl,
   });
 
   @override
-  List<Object?> get props => [name, price, conditions, status, discount];
+  List<Object?> get props => [
+        name,
+        price,
+        conditions,
+        status,
+        discount,
+        imageUrl,
+      ];
 }
