@@ -12,7 +12,6 @@ class HomeRouter {
 
   static Widget get page => MultiProvider(
         providers: [
-          Provider<CustomDio>(create: (context) => CustomDio()),
           Provider<GetProducts>(
               create: (context) =>
                   RemoteGetProduct(dio: context.read<CustomDio>())),
