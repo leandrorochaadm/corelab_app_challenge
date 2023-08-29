@@ -16,26 +16,33 @@ enum HomeStateStatus {
 
 class HomeState extends Equatable {
   final HomeStateStatus status;
-  final String? errorMessage;
-  final String? title;
-  final String? nameProductSearching;
+  final String errorMessage;
+  final String title;
+  final String nameProductSearching;
+  final List<String> historySearch;
 
   const HomeState({
     required this.status,
-    this.errorMessage,
-    this.title,
-    this.nameProductSearching,
+    required this.errorMessage,
+    required this.title,
+    required this.nameProductSearching,
+    required this.historySearch,
   });
 
   const HomeState.initial()
       : status = HomeStateStatus.initial,
         errorMessage = '',
         title = '',
-        nameProductSearching = '';
+        nameProductSearching = '',
+        historySearch = const [];
 
   @override
   List<Object> get props => [
         status,
+        historySearch,
+        errorMessage,
+        title,
+        nameProductSearching,
       ];
 
   HomeState copyWith({
@@ -43,12 +50,14 @@ class HomeState extends Equatable {
     String? errorMessage,
     String? title,
     String? nameProductSearching,
+    List<String>? historySearch,
   }) {
     return HomeState(
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
       title: title ?? this.title,
       nameProductSearching: nameProductSearching ?? this.nameProductSearching,
+      historySearch: historySearch ?? this.historySearch,
     );
   }
 }

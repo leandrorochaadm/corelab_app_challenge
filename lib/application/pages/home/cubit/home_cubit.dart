@@ -9,11 +9,14 @@ class HomeCubit extends Cubit<HomeState> {
     final List products = [];
 
     if (products.isEmpty) {
+      List<String> historicOld = state.historySearch;
+      List<String> historicNew = [...historicOld, nameProduct];
       emit(
         state.copyWith(
           status: HomeStateStatus.notFound,
           title: "${products.length} resultados encontrados",
           nameProductSearching: nameProduct,
+          historySearch: historicNew,
         ),
       );
     }

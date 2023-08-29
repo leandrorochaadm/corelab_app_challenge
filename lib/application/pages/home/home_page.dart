@@ -60,10 +60,11 @@ class HomePage extends StatelessWidget {
 
   Column _searching(HomeState state) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SearchBarWidget(state: state),
         TitleWidget(title: state.title ?? ''),
-        Expanded(child: HistorySearchBarWidget()),
+        Expanded(child: HistorySearchBarWidget(state: state)),
       ],
     );
   }
