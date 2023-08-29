@@ -1,10 +1,13 @@
+import 'package:corelab_app_challenge/application/pages/home/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme_custom.dart';
 
 class NotFoundSearchWidget extends StatelessWidget {
+  final HomeState state;
   const NotFoundSearchWidget({
     super.key,
+    required this.state,
   });
 
   @override
@@ -16,8 +19,8 @@ class NotFoundSearchWidget extends StatelessWidget {
         children: [
           Image.asset('assets/rafiki.png'),
           const Text('Resultado não encontrado', style: textStyleTitle),
-          const Text(
-            'Não encontramos nenhum resultado parecido com "chinelo".',
+          Text(
+            'Não encontramos nenhum resultado parecido com ${state.nameProductSearching ?? ''}.',
             style: textStyleMessageNotResult,
           ),
         ],

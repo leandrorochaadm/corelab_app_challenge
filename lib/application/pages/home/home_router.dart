@@ -8,7 +8,7 @@ class HomeRouter {
   HomeRouter._();
 
   static Widget get page => MultiProvider(
-        providers: [Provider(create: (context) => HomeCubit())],
+        providers: [Provider(create: (context) => HomeCubit()..lastAds())],
         child: const HomePage(),
       );
 }

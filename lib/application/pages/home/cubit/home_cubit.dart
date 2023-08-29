@@ -5,19 +5,31 @@ import 'cubit.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(const HomeState.initial());
 
-  void searchProducts(String nameProduct) {
-    final products = [];
+  void searchProducts({required String nameProduct}) {
+    final List products = [];
 
     if (products.isEmpty) {
-      emit(const HomeState(status: HomeStateStatus.notFound));
+      emit(
+        state.copyWith(
+          status: HomeStateStatus.notFound,
+          title: "${products.length} resultados encontrados",
+          nameProductSearching: nameProduct,
+        ),
+      );
     }
   }
 
   void searching() {
-    print('\n\n++++++++++++++++++++++++++');
-    emit(const HomeState(
+    emit(state.copyWith(
       status: HomeStateStatus.searching,
       title: 'Pesquisa recentes',
+    ));
+  }
+
+  void lastAds() {
+    emit(state.copyWith(
+      title: 'Últimos anúncios',
+      status: HomeStateStatus.lastAds,
     ));
   }
 }

@@ -26,23 +26,19 @@ class HomePage extends StatelessWidget {
             loaded: () => true,
             notFound: () => true,
             searching: () => true,
+            lastAds: () => true,
           ),
           builder: (context, state) {
             if (state.status == HomeStateStatus.notFound) {
-              return _notFoundSearch();
+              return _notFoundSearch(state: state);
             }
             if (state.status == HomeStateStatus.searching) {
-              return _searching();
+              return _searching(state);
             }
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SearchBarWidget(),
-                TitleWidget(),
-                // LastAdsWidget(),
-                // HistorySearchBarWidget()
-              ],
-            );
+            if (state.status == HomeStateStatus.lastAds) {
+              return _lastAds(state);
+            }
+            return const SizedBox.shrink();
           },
         ),
         bottomNavigationBar:
@@ -51,25 +47,37 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Column _searching() {
+  Column _lastAds(HomeState state) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SearchBarWidget(state: state),
+        TitleWidget(title: state.title ?? ''),
+        LastAdsWidget(),
+      ],
+    );
+  }
+
+  Column _searching(HomeState state) {
     return Column(
       children: [
-        SearchBarWidget(),
+        SearchBarWidget(state: state),
+        TitleWidget(title: state.title ?? ''),
         Expanded(child: HistorySearchBarWidget()),
       ],
     );
   }
 
-  Column _notFoundSearch() {
+  Column _notFoundSearch({required HomeState state}) {
     return Column(
       children: [
-        SearchBarWidget(),
+        SearchBarWidget(state: state),
         Expanded(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const NotFoundSearchWidget(),
+              NotFoundSearchWidget(state: state),
             ],
           ),
         ),

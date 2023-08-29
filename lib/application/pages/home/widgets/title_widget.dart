@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../../theme_custom.dart';
 
 class TitleWidget extends StatelessWidget {
+  final String title;
   const TitleWidget({
     super.key,
+    required this.title,
   });
 
   @override
@@ -12,7 +14,7 @@ class TitleWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20, top: 24, bottom: 10),
       child: Text(
-        'Últimos anúncios',
+        title,
         style: textStyleTitle,
       ),
     );

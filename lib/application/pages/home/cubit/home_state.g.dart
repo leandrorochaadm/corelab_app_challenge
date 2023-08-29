@@ -13,7 +13,8 @@ extension HomeStateStatusMatch on HomeStateStatus {
       required T Function() searching,
       required T Function() notFound,
       required T Function() loaded,
-      required T Function() error}) {
+      required T Function() error,
+      required T Function() lastAds}) {
     final v = this;
     if (v == HomeStateStatus.initial) {
       return initial();
@@ -39,6 +40,10 @@ extension HomeStateStatusMatch on HomeStateStatus {
       return error();
     }
 
+    if (v == HomeStateStatus.lastAds) {
+      return lastAds();
+    }
+
     throw Exception('HomeStateStatus.match failed, found no match for: $this');
   }
 
@@ -49,7 +54,8 @@ extension HomeStateStatusMatch on HomeStateStatus {
       T Function()? searching,
       T Function()? notFound,
       T Function()? loaded,
-      T Function()? error}) {
+      T Function()? error,
+      T Function()? lastAds}) {
     final v = this;
     if (v == HomeStateStatus.initial && initial != null) {
       return initial();
@@ -73,6 +79,10 @@ extension HomeStateStatusMatch on HomeStateStatus {
 
     if (v == HomeStateStatus.error && error != null) {
       return error();
+    }
+
+    if (v == HomeStateStatus.lastAds && lastAds != null) {
+      return lastAds();
     }
 
     return any();

@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget({
+  final TextEditingController _searchController = TextEditingController();
+  final HomeState state;
+  SearchBarWidget({
     super.key,
+    required this.state,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cubit = context.read<HomeCubit>();
+    _searchController.text = state.nameProductSearching ?? '';
     return Container(
       color: theme.primaryColor,
       padding: const EdgeInsets.all(10),
@@ -25,7 +29,7 @@ class SearchBarWidget extends StatelessWidget {
                 const SizedBox(width: 12),
                 Expanded(
                   child: TextField(
-                    // controller: _searchController,
+                    controller: _searchController,
                     onTap: () => cubit.searching(),
                     style: const TextStyle(
                       fontSize: 16,
@@ -43,7 +47,8 @@ class SearchBarWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () =>
+                      cubit.searchProducts(nameProduct: _searchController.text),
                   icon: Icon(
                     Icons.search,
                     color: theme.primaryColor,
