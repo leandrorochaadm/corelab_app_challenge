@@ -16,8 +16,9 @@ class LastAdsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-          itemCount: 5,
+          itemCount: state.lastAds.length,
           itemBuilder: (context, index) {
+            final ads = state.lastAds[index];
             return Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,11 +26,11 @@ class LastAdsWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
                   child: Text(
-                    'Hoje ${index}',
+                    ads.day,
                     style: textStyleSubTitle,
                   ),
                 ),
-                ProductsWidget(products: state.products),
+                ProductsWidget(products: ads.products),
               ],
             );
           }),

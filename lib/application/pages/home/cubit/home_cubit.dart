@@ -6,7 +6,12 @@ import 'cubit.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final GetProducts getProducts;
-  HomeCubit({required this.getProducts}) : super(const HomeState.initial());
+  final GetLastAds getLastAds;
+
+  HomeCubit({
+    required this.getLastAds,
+    required this.getProducts,
+  }) : super(const HomeState.initial());
 
   Future<void> searchProducts({required String nameProduct}) async {
     emit(state.copyWith(status: HomeStateStatus.loading));
@@ -55,10 +60,13 @@ class HomeCubit extends Cubit<HomeState> {
     ));
   }
 
-  void lastAds() {
+  Future<void> lastAds() async {
+    final lastAds = await getLastAds();
+
     emit(state.copyWith(
       title: 'Últimos anúncios',
       status: HomeStateStatus.lastAds,
+      lastAds: lastAds,
     ));
   }
 

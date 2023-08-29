@@ -1,3 +1,4 @@
+import 'package:corelab_app_challenge/data/usecases/remote_get_last_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,10 +16,14 @@ class HomeRouter {
           Provider<GetProducts>(
               create: (context) =>
                   RemoteGetProduct(dio: context.read<CustomDio>())),
-          Provider(
+          Provider<GetLastAds>(
               create: (context) =>
-                  HomeCubit(getProducts: context.read<GetProducts>())
-                    ..lastAds()),
+                  RemoteGetLastAds(dio: context.read<CustomDio>())),
+          Provider(
+              create: (context) => HomeCubit(
+                    getProducts: context.read<GetProducts>(),
+                    getLastAds: context.read<GetLastAds>(),
+                  )..lastAds()),
         ],
         child: const HomePage(),
       );

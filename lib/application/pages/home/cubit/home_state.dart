@@ -23,6 +23,7 @@ class HomeState extends Equatable {
   final String nameProductSearching;
   final List<String> historySearch;
   final List<ProductEntity> products;
+  final List<LastAdsEntity> lastAds;
 
   const HomeState({
     required this.status,
@@ -31,6 +32,7 @@ class HomeState extends Equatable {
     required this.nameProductSearching,
     required this.historySearch,
     required this.products,
+    required this.lastAds,
   });
 
   const HomeState.initial()
@@ -39,7 +41,8 @@ class HomeState extends Equatable {
         title = '',
         nameProductSearching = '',
         historySearch = const [],
-        products = const [];
+        products = const [],
+        lastAds = const [];
 
   @override
   List<Object> get props => [
@@ -49,16 +52,17 @@ class HomeState extends Equatable {
         title,
         nameProductSearching,
         products,
+        lastAds,
       ];
 
-  HomeState copyWith({
-    HomeStateStatus? status,
-    String? errorMessage,
-    String? title,
-    String? nameProductSearching,
-    List<String>? historySearch,
-    List<ProductEntity>? products,
-  }) {
+  HomeState copyWith(
+      {HomeStateStatus? status,
+      String? errorMessage,
+      String? title,
+      String? nameProductSearching,
+      List<String>? historySearch,
+      List<ProductEntity>? products,
+      List<LastAdsEntity>? lastAds}) {
     return HomeState(
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
@@ -66,6 +70,7 @@ class HomeState extends Equatable {
       nameProductSearching: nameProductSearching ?? this.nameProductSearching,
       historySearch: historySearch ?? this.historySearch,
       products: products ?? this.products,
+      lastAds: lastAds ?? this.lastAds,
     );
   }
 }
