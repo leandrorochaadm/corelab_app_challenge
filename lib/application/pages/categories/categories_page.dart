@@ -31,40 +31,59 @@ class CategoriesPage extends StatelessWidget {
                 error: () => true,
               ),
               builder: (context, state) {
-                return Expanded(
-                  child: ListView.separated(
-                    itemCount: state.categories.length,
-                    itemBuilder: (context, index) {
-                      final category = state.categories[index];
-                      return InkWell(
-                        onTap: () {},
-                        child: Container(
-                          color: background,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 14),
-                          child: Text(
-                            category.description,
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) => const Divider(
-                      color: grey01,
-                      height: 1,
-                    ),
-                  ),
-                );
-                // return _error(state: state);
+                if (state.status == CategoriesStateStatus.loading) {
+                  return _loading();
+                }
+                if (state.status == CategoriesStateStatus.loaded) {
+                  return _categories(state);
+                }
+                return _error(state: state);
               },
             ),
           ],
         ),
         bottomNavigationBar:
             BottomNavigationBarCustom(index: indexBottomNavigationBar),
+      ),
+    );
+  }
+
+  Expanded _loading() {
+    return const Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(child: CircularProgressIndicator()),
+        ],
+      ),
+    );
+  }
+
+  Expanded _categories(CategoriesState state) {
+    return Expanded(
+      child: ListView.separated(
+        itemCount: state.categories.length,
+        itemBuilder: (context, index) {
+          final category = state.categories[index];
+          return InkWell(
+            onTap: () {},
+            child: Container(
+              color: background,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+              child: Text(
+                category.description,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            ),
+          );
+        },
+        separatorBuilder: (context, index) => const Divider(
+          color: grey01,
+          height: 1,
+        ),
       ),
     );
   }
