@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../../theme_custom.dart';
+import '../cubit/cubit.dart';
 import 'products_widget.dart';
 
 class LastAdsWidget extends StatelessWidget {
+  final HomeState state;
+
   const LastAdsWidget({
     super.key,
+    required this.state,
   });
 
   @override
@@ -25,7 +29,7 @@ class LastAdsWidget extends StatelessWidget {
                     style: textStyleSubTitle,
                   ),
                 ),
-                ProductsWidget(),
+                ProductsWidget(products: state.products),
               ],
             );
           }),

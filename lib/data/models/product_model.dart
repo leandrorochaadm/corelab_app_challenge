@@ -18,6 +18,7 @@ class ProductModel extends ProductEntity with EquatableMixin {
         conditions: json['conditions'] ?? '',
         status: json['status'] ?? '',
         discount: json['discount'] ?? '',
-        imageUrl: json['imageUrl'] ?? '',
+        imageUrl: json['imageUrl'] ??
+            'https://thenounproject.com/api/private/icons/558488/edit/',
       );
 }

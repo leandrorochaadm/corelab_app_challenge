@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '../../../../domain/entities/entities.dart';
 import '../../../../theme_custom.dart';
 
 class ProductWidget extends StatelessWidget {
-  const ProductWidget({super.key});
+  final ProductEntity product;
+  const ProductWidget({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
       color: background,
       child: Row(
         children: [
           Image.network(
-            'https://www.farmace.com.br/images/2019/05/18/dip-monoid-500mg,mL.png',
+            product.imageUrl,
             height: 100,
             width: 100,
             fit: BoxFit.contain,
@@ -22,35 +25,38 @@ class ProductWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 6),
-                decoration: BoxDecoration(
-                    color: theme.primaryColor,
-                    borderRadius: BorderRadius.circular(4)),
-                child: Text(
-                  '10% off'.toUpperCase(),
-                  style: textStyleLabelDiscount,
+              Visibility(
+                visible: product.discount.isNotEmpty,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  decoration: BoxDecoration(
+                      color: theme.primaryColor,
+                      borderRadius: BorderRadius.circular(4)),
+                  child: Text(
+                    product.discount.toUpperCase(),
+                    style: textStyleLabelDiscount,
+                  ),
                 ),
               ),
               SizedBox(
                 width: 250,
                 child: Text(
-                  'Dipirona D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D D ',
+                  product.name,
                   overflow: TextOverflow.clip,
                   maxLines: 2,
                   style: textStyleGreyBlack16,
                 ),
               ),
               Text(
-                r'R$5000,00',
+                product.price.toString(),
                 style: textStyleGreyBlack20,
               ),
               Text(
-                r'Em até 12x de R$ 249,00',
+                product.conditions,
                 style: textStylePrimaryColor14,
               ),
               Text(
-                'Novo'.toUpperCase(),
+                product.status.toUpperCase(),
                 style: textStyleLabelSituation,
               ),
             ],

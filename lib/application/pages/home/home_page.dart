@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
       children: [
         SearchBarWidget(state: state),
         TitleWidget(title: state.title ?? ''),
-        LastAdsWidget(),
+        LastAdsWidget(state: state),
       ],
     );
   }
@@ -67,7 +67,11 @@ class HomePage extends StatelessWidget {
       children: [
         SearchBarWidget(state: state),
         TitleWidget(title: state.title ?? ''),
-        Expanded(child: ProductsWidget(isScroll: true)),
+        Expanded(
+            child: ProductsWidget(
+          isScroll: true,
+          products: state.products,
+        )),
       ],
     );
   }
