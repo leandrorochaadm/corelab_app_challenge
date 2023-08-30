@@ -41,7 +41,7 @@ class BottomNavigationBarCustom extends StatelessWidget {
           label: 'Favoritos',
         ),
         const BottomNavigationBarItem(
-          icon: Icon(Icons.category),
+          icon: Icon(Icons.person_2_outlined),
           label: 'Conta',
         ),
       ],
