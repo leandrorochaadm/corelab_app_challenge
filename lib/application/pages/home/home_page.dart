@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
           ),
           builder: (context, state) {
             if (state.status == HomeStateStatus.notFound) {
-              return _notFoundSearch(state: state);
+              return _notFoundSearch(state: state, context: context);
             }
             if (state.status == HomeStateStatus.searching) {
               return _searching(state);
@@ -92,17 +92,24 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Column _notFoundSearch({required HomeState state}) {
+  Column _notFoundSearch({
+    required HomeState state,
+    required BuildContext context,
+  }) {
+    final spaceVertical = (MediaQuery.sizeOf(context).height - 425) / 2;
     return Column(
       children: [
         SearchBarWidget(state: state),
         Expanded(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              NotFoundSearchWidget(state: state),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: spaceVertical),
+                NotFoundSearchWidget(state: state),
+              ],
+            ),
           ),
         ),
       ],
