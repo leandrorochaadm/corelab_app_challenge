@@ -12,8 +12,10 @@ class BottomNavigationBarCustom extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: index,
       type: BottomNavigationBarType.fixed,
+      selectedLabelStyle: const TextStyle(fontSize: 10),
+      unselectedLabelStyle: const TextStyle(fontSize: 10),
+      iconSize: 32,
       onTap: (value) {
-        print(value);
         if (value == 0) {
           Navigator.pushNamed(context, '/home');
         }
