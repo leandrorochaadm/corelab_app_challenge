@@ -1,6 +1,6 @@
-import 'package:corelab_app_challenge/core/core.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/core.dart';
 import '../../../../domain/entities/entities.dart';
 
 class ProductWidget extends StatelessWidget {
@@ -9,8 +9,6 @@ class ProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       color: ColorsApp.i.background,
@@ -39,7 +37,7 @@ class ProductWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 250,
+                width: MediaQuery.sizeOf(context).width - 120,
                 child: Text(
                   product.name,
                   overflow: TextOverflow.clip,
