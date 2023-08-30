@@ -52,7 +52,8 @@ class SearchBarWidget extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       Visibility(
-                        visible: state.status != HomeStateStatus.loaded,
+                        visible: state.status == HomeStateStatus.lastAds ||
+                            state.status == HomeStateStatus.searching,
                         child: IconButton(
                           onPressed: () => cubit.searchProducts(
                               nameProduct: _searchController.text),
@@ -64,7 +65,8 @@ class SearchBarWidget extends StatelessWidget {
                         ),
                       ),
                       Visibility(
-                        visible: state.status == HomeStateStatus.loaded,
+                        visible: state.status == HomeStateStatus.loaded ||
+                            state.status == HomeStateStatus.notFound,
                         child: IconButton(
                           onPressed: () => cubit.clearSearch(),
                           icon: Icon(
@@ -80,7 +82,8 @@ class SearchBarWidget extends StatelessWidget {
                 ),
               ),
               Visibility(
-                visible: state.status == HomeStateStatus.loaded,
+                visible: state.status == HomeStateStatus.loaded ||
+                    state.status == HomeStateStatus.notFound,
                 child: TextButton(
                     onPressed: () {},
                     child: Text(
