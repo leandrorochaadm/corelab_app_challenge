@@ -22,7 +22,7 @@ class NotFoundSearchWidget extends StatelessWidget {
           Text('Resultado não encontrado', style: TextStyles.i.textStyleTitle),
           const SizedBox(height: 10),
           Text(
-            'Não encontramos nenhum resultado parecido com ${state.nameProductSearching ?? ''}.',
+            'Não encontramos nenhum resultado parecido com "${state.nameProductSearching ?? ''}".',
             style: TextStyles.i.textStyleMessageNotResult,
           ),
         ],
