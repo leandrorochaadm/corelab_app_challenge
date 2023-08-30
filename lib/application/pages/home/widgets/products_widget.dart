@@ -28,10 +28,7 @@ class ProductsWidget extends StatelessWidget {
           : const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         final product = products[index];
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ProductWidget(product: product),
-        );
+        return ProductWidget(product: product);
       },
     );
   }

@@ -12,7 +12,7 @@ class ProductWidget extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       color: ColorsApp.i.background,
       child: Row(
         children: [
