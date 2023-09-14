@@ -1,7 +1,8 @@
+import 'package:corelab_app_challenge/application/application.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/core.dart';
-import '../../../../domain/entities/entities.dart';
+import '../../../../../domain/domain.dart';
+
 
 class ProductWidget extends StatelessWidget {
   final ProductEntity product;

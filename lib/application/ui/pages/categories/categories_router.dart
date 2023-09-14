@@ -1,11 +1,10 @@
-import 'package:corelab_app_challenge/data/usecases/remote_get_categories.dart';
-import 'package:corelab_app_challenge/domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../data/data.dart';
+import '../../../../domain/domain.dart';
 import '../../../core/core.dart';
-import 'categories_page.dart';
-import 'cubit/cubit.dart';
+import 'categories.dart';
 
 class CategoriesRouter {
   CategoriesRouter._();

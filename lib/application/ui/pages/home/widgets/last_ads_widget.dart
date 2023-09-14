@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/core.dart';
-import '../cubit/cubit.dart';
+import '../../../ui.dart';
+import '../home.dart';
 import 'products_widget.dart';
 
 class LastAdsWidget extends StatelessWidget {

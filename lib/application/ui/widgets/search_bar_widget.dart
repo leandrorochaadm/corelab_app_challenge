@@ -1,8 +1,8 @@
-import 'package:corelab_app_challenge/application/pages/home/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/core.dart';
+import '../pages/home/home.dart';
+import '../ui.dart';
 
 class SearchBarWidget extends StatelessWidget {
   final TextEditingController _searchController = TextEditingController();

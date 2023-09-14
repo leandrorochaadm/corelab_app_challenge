@@ -1,8 +1,8 @@
-import 'package:corelab_app_challenge/application/pages/home/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/core.dart';
+import '../../../ui.dart';
+import '../home.dart';
 
 class HistorySearchBarWidget extends StatelessWidget {
   final HomeState state;

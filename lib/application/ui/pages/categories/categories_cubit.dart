@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/domain.dart';
-import 'cubit.dart';
+import 'categories.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
   final GetCategories getCategories;

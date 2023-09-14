@@ -1,12 +1,10 @@
-import 'package:corelab_app_challenge/data/usecases/remote_get_last_ads.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../data/data.dart';
+import '../../../../domain/domain.dart';
 import '../../../core/core.dart';
-import '../../../data/data.dart';
-import '../../../domain/domain.dart';
-import 'cubit/cubit.dart';
-import 'home_page.dart';
+import 'home.dart';
 
 class HomeRouter {
   HomeRouter._();

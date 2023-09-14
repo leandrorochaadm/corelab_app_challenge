@@ -1,8 +1,9 @@
 import 'package:corelab_app_challenge/domain/entities/entities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../domain/usecases/usecases.dart';
-import 'cubit.dart';
+import '../../../../domain/domain.dart';
+import 'home.dart';
+
 
 class HomeCubit extends Cubit<HomeState> {
   final GetProducts getProducts;

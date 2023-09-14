@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:match/match.dart';
 
-import '../../../../domain/entities/entities.dart';
+import '../../../../domain/domain.dart';
 
 part 'home_state.g.dart';
 
