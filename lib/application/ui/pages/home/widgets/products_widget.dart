@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/core.dart';
-import '../../../../domain/entities/entities.dart';
+import '../../../../../domain/domain.dart';
+import '../../../ui.dart';
 import 'product_widget.dart';
 
 class ProductsWidget extends StatelessWidget {

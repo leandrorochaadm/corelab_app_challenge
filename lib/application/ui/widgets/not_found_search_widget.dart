@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/core.dart';
-import '../../pages/home/cubit/cubit.dart';
+import '../pages/home/home.dart';
+import '../ui.dart';
+
 
 class NotFoundSearchWidget extends StatelessWidget {
   final HomeState state;

@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
-import '../../core/core.dart';
+import '../../application/aplication.dart';
 import '../../domain/domain.dart';
 import '../models/models.dart';
 

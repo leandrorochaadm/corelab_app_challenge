@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/core.dart';
+import '../ui.dart';
+
 
 class ErrorCustomWidget extends StatelessWidget {
   const ErrorCustomWidget({
